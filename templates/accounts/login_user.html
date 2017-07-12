@@ -1,0 +1,183 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block title %}Login{% endblock %}
+
+{% block extra_js %}
+<script src='{% static "js/validator.min.js" %}'></script>
+<script type="text/javascript">
+    var parseTitle = document.title.split('|')[1];
+    $(function(){
+
+        $("#id_email").on('focus',function(){
+            $("#email_error").hide()
+        });
+
+        $("#id_registered_email").on('focus',function(){
+            $(".cs-error").hide()
+        });
+
+        $("#id_password").on('focus',function(){
+            $("#pass_error").hide()
+        });
+
+        $("#id_forgot_password").on('click', function(){
+            $("#loginbox").slideToggle(200);
+            $("#forgotpasswordbox").slideToggle(200);
+            document.title = "Forget Password |" + parseTitle;
+
+        });
+
+        $("#id_login").on('click', function(){
+            $("#loginbox").slideToggle(200);
+            $("#forgotpasswordbox").slideToggle(200);
+            document.title = "Login |" + parseTitle;
+        });
+
+    });
+
+    function forgot_password($this) {
+        $.ajax({
+            url: $this.attr("action"),
+            type: $this.attr("method"),
+            data: $this.serialize(),
+            success: function(response) {
+                response = JSON.parse(response);
+                if(response.status){
+                    debugger;
+                    $("#id_response_text").html("An email has been sent to " + "<b>" + response.text + "</b>");
+                    $("#id_success_mail_sent").show();
+                    $("#resetpasswordform")[0].reset();
+
+                }else{
+                    debugger;
+                    for(var i=0; i<response.errors.length; i++){
+                        $("#id_reset_error").addClass('has-error');
+                        $this.find('#id_'+response.errors[i].key+'_error').text(response.errors[i].error);
+                        $this.find('#id_'+response.errors[i].key+'_error').show();
+                        $this.find('#id_'+response.errors[i].key+'_error_parent_div').addClass('has-error');
+                    }
+                }
+            }
+        });
+        return false;
+    }
+    
+    
+</script>
+{% endblock %}
+
+{% block body %}
+    <div class="container-fluid">
+        <!--Login form-->
+        <div id="loginbox" class="col-md-6 col-md-offset-3 col-sm-12" style="margin-top: 20px;">
+            <div class="panel panel-default">
+                <div class="panel-heading" style="background-color: #0747A6; color: #fff;">
+                    <div class="panel-title">Sign In</div>
+                </div>
+                <div class="panel-body" style="margin-top: 1px">
+                    <div class="alert alert-error alert-warning" style="{% if form.non_field_errors and not form.email.errors %}display: block;{% elif error_message %}display: block; {% else %}display: none;{% endif %}">
+                        <a class="close" data-dismiss="alert" href="#">×</a>
+                        {% if form.non_field_errors and not form.email.errors %}
+                            <small class="cs-error">{{ form.non_field_errors.as_text }}</small>
+                        {% elif error_message %}
+                            <small class="cs-error">{{ error_message }}</small>
+                        {% endif %}
+                    </div>
+                    <form id="loginform" class="form-horizontal"  data-toggle="validator" role="form" method="post" action="{% url 'login_user' %}" style="margin-top: -15px;">
+                        {% csrf_token %}
+                        <div class="form-group {% if form.email.errors %}has-error{% endif %}">
+                            <div class="col-sm-12">
+                                <label for="id_email" class="control-label"><h5><strong>*Email</strong></h5></label>
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                    {{ form.email }}
+                                </div>
+                                <div>
+                                    <small id="email_error" class="cs-error">{{ form.email.errors.as_text }}</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group {% if form.password.errors %}has-error{% endif %}" style="margin-top: -10px;">
+                            <div class="col-sm-12">
+                                <label for="id_password" class="control-label"><h5><strong>*Password</strong></h5></label>
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                                    {{ form.password }}
+                                </div>
+                                <div>
+                                    <small id="pass_error" class="cs-error">{{ form.password.errors.as_text }}</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <div class="col-sm-12 controls">
+                                      <input class="btn btn-primary btn-md" type="submit" value="Login"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-12 control">
+                                <div style="border-top: 1px solid#888; color:#0747A6; padding-top:15px; font-size:85%">
+                                    <a id="id_forgot_password" style="float: right; cursor: pointer;">Forgot Password?</a>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!--Reset Form-->
+        <div id="forgotpasswordbox" style="display: none; margin-top: 20px;" class="col-md-6 col-md-offset-3 col-sm-12">
+            <div class="panel panel-default">
+                <div class="panel-heading" style="background-color: #0747A6; color: #fff;">
+                    <div class="panel-title">Enter Your Registered Email-Address</div>
+                </div>
+                <div class="panel-body" style="margin-top: 1px">
+                    <div id="id_success_mail_sent" style="display: none;">
+                        <div class="alert alert-success alert-dismissible" id="" role="alert">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <span id="id_response_text"></span>
+                        </div>
+                    </div>
+                    <form id="resetpasswordform" class="form-horizontal" data-toggle="validator" role="form" method="post" action="{% url 'forget_password' %}" onsubmit="return forgot_password($(this))" style="margin-top: -15px;">
+                        {% csrf_token %}
+                        <div id="id_reset_error" class="form-group {% if for_pass_form.registered_email.errors %}has-error{% endif %}">
+                            <div class="col-sm-12">
+                                <label for="id_registered_email" class="control-label"><h5><strong>*Email</strong></h5></label>
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                    {{ for_pass_form.registered_email }}
+                                </div>
+
+                                <small id="id_registered_email_error" class="cs-error"></small>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <div class="col-sm-12 controls">
+                                        <input class="btn btn-primary btn-md" type="submit" value="Send Reset Email"/>
+                                    <div class="circle-loader">
+                                        <div class="checkmark draw"></div>
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-12 control">
+                                <div style="border-top: 1px solid#888; color:#0747A6; padding-top:15px; font-size:85%">
+                                    <a id="id_login" style="float: right; cursor: pointer;">Sign In</a>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
