@@ -90,7 +90,7 @@ else:
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
             'NAME': 'birthday',
             'USER': 'birthday',
-            'PASSWORD': 'sweetbebo1234',
+            'PASSWORD': 'sweetiebebo1234',
             'HOST': 'birthday-rds.cwrbbkxdddop.ap-south-1.rds.amazonaws.com',
             'PORT': 5432,
         }
