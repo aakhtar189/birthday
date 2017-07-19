@@ -88,10 +88,10 @@ else:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': 'birthday',
-            'USER': 'birthday',
-            'PASSWORD': 'sweetiebebo1234',
-            'HOST': 'birthday-rds.cwrbbkxdddop.ap-south-1.rds.amazonaws.com',
+            'NAME': 'birthday_bebo',
+            'USER': 'birthday_bebo',
+            'PASSWORD': 'birthday_bebo',
+            'HOST': 'birthday-prod.cwrbbkxdddop.ap-south-1.rds.amazonaws.com',
             'PORT': 5432,
         }
     }    
