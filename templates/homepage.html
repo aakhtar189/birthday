@@ -1,53 +1,177 @@
-{% extends 'base.html' %}
+{% extends 'base2.html' %}
 {% load staticfiles %}
 {% block title %}Hompage{% endblock %}
 
 
 {% block body %}
-<style type="text/css">
- 
-    .panel-group .panel {
-        border-radius: 0;
-        box-shadow: none;
-        border-color: #EEEEEE;
-    }
+    <div id="fh5co-wrapper">
+        <div id="fh5co-page">
+            <div class="fh5co-hero" data-section="home">
+                <div class="fh5co-overlay"></div>
+                <div class="fh5co-cover text-center" data-stellar-background-ratio="0.5" style="background-image: url('{% static 'images/back1.jpg' %}');">
+                    <div class="display-t">
+                        <div class="display-tc">
+                            <div class="container">
+                                <div class="col-md-10 col-md-offset-1">
+                                    <div class="animate-box">
+                                        <h2 id="basic">Happy Birthday Bebo</h2>
+                                        <!-- <div id="typed-strings">
+                                            <h4>Finally its ur birthday.<br><strong>The most special one</strong></h4>
+                                            <h3>First of all say <strong>Alhamdulillah!</strong></h3>
+                                            <h3 class="hidden-xs">May Allah guide you to the right path and aap k sari jaiz dua qubool ho..<strong>Ameen!!</strong></h3>
 
-    .panel-default > .panel-heading {
-        padding: 0;
-        border-radius: 0;
-        color: #212121;
-        background-color: #FAFAFA;
-        border-color: #EEEEEE;
-    }
+                                            <h3>May your birthday blossoms into lots of dreams come true!</h3>
 
-    .panel-title {
-        font-size: 14px;
-    }
+                                            <h3>Wishing you courage, respect, wits, success and lots of love</h3>
+                                            <h3>on this awesome day in which we're celebrating your birth.</h3>
 
-    .panel-title > a {
-        display: block;
-        padding: 15px;
-        text-decoration: none;
-    }
+                                            <h3>Only special people receive wishes from my side.</h3>
+                                            <h3> And you have always been on the top of the list. Yes, bebo I mean it.</h3>
 
-    .more-less {
-        float: left;
-        color: #212121;
-    }
+                                            <h3>Finally, I got a chance to do something special for you!</h3>
 
-    .panel-default > .panel-heading + .panel-collapse > .panel-body {
-        border-top-color: #EEEEEE;
-    }
-    
+                                            <h3>Anything suits on you. But when you wear smile, you rock!</h3>
 
-</style>
-    <div class="wrapper">
-        <center><h1>This is the home page</h1></center>
+                                            <h3>Living your life well matters so forget about your age.</h3>
+
+                                            <h3>IN this fast changing world of information, one thing that keep me on the top is.. the rule of thumb!</h3>
+
+                                            <h3>The way you feel toward life exaggerates the joys and woes in life. Live at fullest.</h3>
+
+                                            <h3>Oh, your another birthday has arrived? But it really seems only yesterday that you were a whole year younger! God bless you, Buddy!</h3>
+
+                                            <h3>No matter how far you are from them. You can always be in touch to have good words on their special day.</h3>
+
+                                            <h3>Go confidently in the direction of your dreams. Live the life you've imagined!</h3>
+                                            <h3>It <em>types</em> out sentences.</h3>
+                                            <h3>And then deletes them.</h3>>
+                                            <h3>Try it out!</h3>>
+                                        </div>
+                                        <div class="col-xs-8">
+                                            <h1 id="typed" style="white-space:pre; position: relative;"></h1>
+                                        </div> -->
+                                        <p><span>31.07.2017</span></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <header id="fh5co-header-section" class="sticky-banner">
+                <div class="container">
+                    <div class="nav-header">
+                        <a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle dark"><i></i></a>
+                        <h1 id="fh5co-logo"><a href="index.html">Happy Birthday</a></h1>
+                        <nav id="fh5co-menu-wrap" role="navigation">
+                            <ul class="sf-menu" id="fh5co-primary-menu">
+                                <li class="active"><a href="index.html" >Home</a></li>
+                                <li>
+                                    <a href="groom-bride.html" class="fh5co-sub-ddown">Groom &amp; Bride</a>
+                                    <ul class="fh5co-sub-menu">
+                                        <li><a href="#">Wedding Template</a></li>
+                                        <li><a href="">Marble Template</a></li>
+                                        <li><a href="">Tasty Template</a></li>
+                                        <li><a href="">Education Template</a></li>
+                                        <li><a href="">Words Template</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="when-where.html">When &amp; Where</a></li>
+                                <li><a href="guest.html">Guest</a></li>
+                                <li><a href="gallery.html">Gallery</a></li>
+                                <li><a href="blog.html">Blog</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </header>
+            <div id="fh5co-couple" class="fh5co-section-gray">
+                <div class="container">
+                    <div class="row row-bottom-padded-md animate-box">
+                        <div class="col-md-5 col-sm-5 col-xs-12 nopadding">
+                            <img src="{% static 'images/back.jpg' %}" class="" alt="Yashmeen Khan" style="height: 450px; width: 100%; border-radius: 5px;">
+                            <center><h3>Yashmeen Khan</h3></center>
+                        </div>
+                        <div class="col-md-2 col-sm-2 col-xs-2 nopadding"><h2 class="amp-center"><i class="icon-gift"></i></h2></div>
+                            
+                    </div>
+                    <div class="row animate-box">
+                        <div class="col-md-8 col-md-offset-2">
+                            <div class="col-md-12 text-center heading-section">
+                                <h2>Are Getting Married</h2>
+                                <p><strong>on Dec 28, 2017 &mdash; Boracay, Philippines</strong></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+
+            <div id="fh5co-started" style="background-image:url(images/cover_bg_2.jpg);" data-stellar-background-ratio="0.5">
+            <div class="overlay"></div>
+                <div class="container">
+                    <div class="row animate-box">
+                        <div class="col-md-8 col-md-offset-2 text-center heading-section">
+                            <h2>Are You Attending?</h2>
+                            <p>Please Fill-up the form to notify you that you're attending. Thanks.
+                        </div>
+                    </div>
+                    <div class="row animate-box">
+                        <div class="col-md-10 col-md-offset-1">
+                            <form class="form-inline">
+                                <div class="col-md-4 col-sm-4">
+                                    <div class="form-group">
+                                        <label for="name" class="sr-only">Name</label>
+                                        <input type="name" class="form-control" id="name" placeholder="Name">
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-sm-4">
+                                    <div class="form-group">
+                                        <label for="email" class="sr-only">Email</label>
+                                        <input type="email" class="form-control" id="email" placeholder="Email">
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-sm-4">
+                                    <button type="submit" class="btn btn-primary btn-block">I am Attending</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <footer>
+                <div id="footer">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12 text-center">
+                                <h2>Jack &amp; Rose</h2>
+                            </div>
+                            <div class="col-md-6 col-md-offset-3 text-center">
+                                <p class="fh5co-social-icons">
+                                    <a href="#"><i class="icon-twitter2"></i></a>
+                                    <a href="#"><i class="icon-facebook2"></i></a>
+                                    <a href="#"><i class="icon-instagram"></i></a>
+                                    <a href="#"><i class="icon-dribbble2"></i></a>
+                                    <a href="#"><i class="icon-youtube"></i></a>
+                                </p>
+                                <p>Copyright 2016 Free Html5 <a href="#">Module</a>. All Rights Reserved. <br>Made with <i class="icon-heart3"></i> by <a href="http://freehtml5.co/" target="_blank">Freehtml5.co</a> / Demo Images: <a href="https://unsplash.com/" target="_blank">Unsplash</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
     </div>
-
 {% endblock %}
 
 {% block extra_js %}
+<script type="text/javascript" src="{% static 'js/typing/typed.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/typing/demos.js' %}"></script>
+<link rel="stylesheet" type="text/css" href="{% static 'css/typing/demos.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
 <script type="text/javascript">        
     
 </script>

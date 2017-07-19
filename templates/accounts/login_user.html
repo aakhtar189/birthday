@@ -69,11 +69,8 @@
 {% block body %}
     <div class="container-fluid">
         <!--Login form-->
-        <div id="loginbox" class="col-md-6 col-md-offset-3 col-sm-12" style="margin-top: 20px;">
+        <div id="loginbox" class="col-md-6 col-md-offset-3 col-sm-12 animate-box" style="margin-top: 20px;">
             <div class="panel panel-default">
-                <div class="panel-heading" style="background-color: #0747A6; color: #fff;">
-                    <div class="panel-title">Sign In</div>
-                </div>
                 <div class="panel-body" style="margin-top: 1px">
                     <div class="alert alert-error alert-warning" style="{% if form.non_field_errors and not form.email.errors %}display: block;{% elif error_message %}display: block; {% else %}display: none;{% endif %}">
                         <a class="close" data-dismiss="alert" href="#">×</a>

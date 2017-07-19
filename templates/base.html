@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>{% block title %}{% endblock %} | Cost Segration</title>
+    <title>{% block title %}{% endblock %} | Sweet Bebo</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1">
     <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}" media="screen" charset="utf-8">
@@ -12,6 +12,8 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/custom.css' %}" media="screen" charset="utf-8">
     <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap-tagsinput-typeahead.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap-switch.css' %}">
+            <link rel="stylesheet" type="text/css" href="{% static 'css/theme/animate.css' %}">
+
     <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap-toggle.min.css' %}">
 
     <script type="text/javascript" src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
@@ -28,71 +30,8 @@
 
 </head>
 <body>
-<style type="text/css">
-    .nav-tabs > li.active > a,
-    .nav-tabs > li.active > a:hover,
-    .nav-tabs > li.active > a:focus{
-        color: #fff;
-        background-color: #0747a6;
-    }
-    tbody{
-        cursor: pointer;
-    }
-    .table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
-        background-color: #0747a6;
-        color: #fff;
-    }
-
-    .has-error .help-block, .has-error .control-label, .has-error .radio, .has-error .checkbox, .has-error .radio-inline, .has-error .checkbox-inline, .has-error.radio label, .has-error.checkbox label, .has-error.radio-inline label, .has-error.checkbox-inline label, .has-error .form-control-feedback, .has-error label{
-        color: #a94442;
-    }
-
-    .has-error .form-control, .has-error .form-control:focus{
-        border: 1px solid #a94442;
-    }
-    .avatar_img {
-        overflow: hidden;
-        text-align: center;
-        position: relative;
-    }
 
 
-    .avatar_img > img {
-        position: absolute;
-        height: 100%;
-        -webkit-transform: translateX(-50%);
-        -moz-transform: translateX(-50%);
-        transform: translateX(-50%);
-    }
-    #id_item{
-        background-color: #fff!important;
-    }
-    input[type=checkbox] {width:20px; height:17px;}
-}
-</style>
-
-<nav class="navbar navbar-default navbar-fixed-top">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <a class="navbar-brand hidden-xs" href="/" style="color: #0747a6"><b>Cost Segregation</b></a>
-            <a class="navbar-brand visible-xs" href="/" style="color: #0747a6; font-size: 14px; height: 40px;"><b>Cost Segregation</b></a>
-        </div>
-        <div class="nav navbar-nav navbar-right" style="margin-top: 10px;">
-            <li>
-                <img class="hidden-xs" src="{% static 'images/avatar.png' %}" style="border-radius: 50px; width: 30px; height: 30px; cursor: pointer;">                
-                <span class="dropdown-toggle hidden-xs" data-toggle="dropdown" style="cursor: pointer;">
-                    <small><b> {{ request.user.get_full_name }}&nbsp;</b></small><span class="caret"></span>&nbsp;
-                </span>
-                <ul class="dropdown-menu" style="margin-top: 10px;">
-                    <li><a href="#changepassword" role="button" data-toggle="modal">Change Password</a></li>
-                    <li><a href="{% url 'logout_user' %}">Logout</a></li>
-                </ul>
-                <button class="btn btn-primary btn-sm hidden-xs" id="id_full_screen" onclick="fullScreen()"><i class="fa fa-arrows-alt" aria-hidden="true"></i></button>
-                <button class="btn btn-primary btn-sm hidden-xs" id="id_exist_full_screen" onclick="fullScreen()" style="display: none;"><i class="fa fa-times" aria-hidden="true"></i></button>
-            </li>
-        </div>
-    </div>
-</nav>
 <div class="main-content">
     <div id="id_message_alert" style="margin-top: 100px; text-align: center; width: 60%; margin-left: 20%;">
         {% if messages %}
